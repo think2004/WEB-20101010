@@ -3,14 +3,15 @@
 
 <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title> Think Blog</title>
+    <title>admin &#8211;  Think Blog</title>
 
     <link rel="Shortcut Icon" href="https://think2004.github.io/WEB-20101030/favicon.ico" />
     
     
     <link rel="stylesheet" href="https://think2004.github.io/WEB-20101030/statics/css/style2011.css" type="text/css" media="screen"/>
     
-	    		<script type="text/javascript">
+	    
+		<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4"}};
 			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),c.toDataURL().length>3e3):("simple"===a?d.fillText(String.fromCharCode(55357,56835),0,0):d.fillText(String.fromCharCode(55356,57135),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
@@ -76,7 +77,7 @@ jQuery(document).ready(function($) {
 <!--#navigation:start-->
             <div id="navigation">
             	<ul>
-                	<li><a href="/" class="current">Home</a></li>
+                	<li><a href="/" class="">Home</a></li>
                     <li class="page_item page-item-7"><a href="/about/">About</a></li>
                 </ul>
             </div>
@@ -93,64 +94,94 @@ jQuery(document).ready(function($) {
         </div>
 <!--#header:end--><!--#content:start-->
     	<div id="content">
-                <div class="entry" id="post-2031">
+        
+
+		
+ 	   	  		<h2 class="pagetitle">Author Archive</h2>
+ 	  
+				<div class="entry" id="post-941">
         
 		
-            	<h2><a href="/post/2031/" rel="bookmark" title="Permanent Link to 时间就是这样">时间就是这样</a></h2>
-                <p class="meta-header">Posted on the 十一月 21st, 2015 under <a href="/topics/fluxay/" rel="category tag">流光</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
+            	<h2><a href="/post/941/" rel="bookmark" title="Permanent Link to linux安装SVN服务器+配置过程">linux安装SVN服务器+配置过程</a></h2>
+                <p class="meta-header">Posted on the 十一月 9th, 2014 under <a href="/topics/uncategorized/" rel="category tag">默认</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
                 
-                <p>不要浪费任何时间<br />
-不要做无意义的事情</p>
-<p>充分享受生命的每一秒<br />
-世界上很多地方都需要去</p>
-<p>为了十年后的今天不会对自己失望<br />
-必须努力，必须努力，必须努力，必须努力，</p>
+                <h2 id="1">测试环境</h2>
+<p>本人电脑自建 VMware CentOS 5<br />
+虚拟机配置 内存2G CPU2颗 北京20M光纤<br />
+因为linux发行版众多 可能有些命令并不通用</p>
+<h2>subversion安装</h2>
+<p>登录你的ssh 执行如下命令进行安装</p>
+<pre>yum install subversion</pre>
+<p><a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160330.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-942 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160330.jpg" alt="20141109160330" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-942" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160330.jpg" alt="20141109160330" width="675" height="424" /></noscript></a><br />
+然后提示需要下载3.7M的数据 输入Y进行下载和安装<br />
+<a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160859.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-943 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160859.jpg" alt="20141109160859" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-943" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160859.jpg" alt="20141109160859" width="675" height="424" /></noscript></a><br />
+到这里就安装成功了<br />
+<a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160916.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-944 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160916.jpg" alt="20141109160916" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-944" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109160916.jpg" alt="20141109160916" width="675" height="424" /></noscript></a></p>
+<h2>subversion配置</h2>
+<p>可以先查看下subversion的安装位置</p>
+<pre>rpm -ql subversion</pre>
+<p><a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109161856.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-946 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109161856.jpg" alt="20141109161856" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-946" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109161856.jpg" alt="20141109161856" width="675" height="424" /></noscript></a></p>
+<p>创建svn版本库目录</p>
+<pre>mkdir -p /var/svn/svnrepos</pre>
+<p><a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109162846.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-948 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109162846.jpg" alt="20141109162846" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-948" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109162846.jpg" alt="20141109162846" width="675" height="424" /></noscript></a></p>
+<p>创建版本库</p>
+<pre>svnadmin create /var/svn/svnrepos</pre>
+<p>创建完版本库后我们进入/var/svn/svnrepos目录 可以看到生成了如下图的几个文件<br />
+conf这个目录就是该svn版本库配置文件<br />
+<a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109163447.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-949 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109163447.jpg" alt="20141109163447" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-949" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109163447.jpg" alt="20141109163447" width="675" height="424" /></noscript></a></p>
+<p>conf目录介绍<br />
+首先进入conf目录<br />
+authz文件是权限控制文件<br />
+passwd是帐号密码文件<br />
+svnserve.conf SVN服务配置文件<br />
+如下图<br />
+<a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109164146.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-950 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109164146.jpg" alt="20141109164146" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-950" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109164146.jpg" alt="20141109164146" width="675" height="424" /></noscript></a></p>
+<p>配置账号密码</p>
+<pre>vi passwd</pre>
+<p>在[users]块中添加用户和密码，格式：帐号=密码，如下图 我配置的账号和密码 qiangren=<br />
+<a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109164639.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-953 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109164639.jpg" alt="20141109164639" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-953" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109164639.jpg" alt="20141109164639" width="675" height="424" /></noscript></a><br />
+保存退出后配置权限</p>
+<p>配置账号权限</p>
+<pre>vi authz</pre>
+<p>在末尾添加如下代码</p>
+<pre>[/]
+qiangren=rw
+w=r</pre>
+<p>意思是在版本库的根目录，qiangren用户对其有读写权限，如果你只想给读的权限那就设置为w<br />
+<a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109165252.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-952 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109165252.jpg" alt="20141109165252" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-952" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109165252.jpg" alt="20141109165252" width="675" height="424" /></noscript></a><br />
+保存后退出在配置svnserve.conf</p>
+<p>修改svnserve.conf文件</p>
+<pre>vi svnserve.conf</pre>
+<p>打开下面的几个注释<br />
+anon-access = read #匿名用户可读<br />
+auth-access = write #授权用户可写<br />
+password-db = passwd #使用哪个文件作为账号文件<br />
+authz-db = authz #使用哪个文件作为权限文件<br />
+找到realm = My First Repository修改为你的版本库所在目录<br />
+realm = /var/svn/svnrepos #版本库所在目录<br />
+<a class="highslide-image" href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109170047.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-954 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109170047.jpg" alt="20141109170047" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-954" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141109170047.jpg" alt="20141109170047" width="675" height="424" /></noscript></a></p>
+<p>保存退出 到此位置简单的配置完成了</p>
+<h2>启动svn版本库</h2>
+<pre>svnserve -d -r /var/svn/svnrepos</pre>
+<p>到这里SVN服务器搭建完毕 可以正常使用了</p>
+<h2>总结</h2>
+<p>SVN服务器搭建就这些 下篇文章我会介绍如何在windows下面使用subversion客户端 以及遇到的问题</p>
                 
                 <div class="meta-footer">
                 	<ul>
-                        <li><a href="/post/2031/">Read More</a></li>
-                        <li><a href="/post/2031/#comment">没有评论</a></li>
-                                            </ul>
-                 <div class="clear-left"></div>   
-				</div>
-        
-        	</div>
-                <div class="entry" id="post-1076">
-        
-		
-            	<h2><a href="/post/1076/" rel="bookmark" title="Permanent Link to 翠岗小镇">翠岗小镇</a></h2>
-                <p class="meta-header">Posted on the 一月 28th, 2015 under <a href="/topics/dansnow/" rel="category tag">溯雪</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
-                
-                <p>大兴安岭 翠岗镇 一年四季 无论什么时间 都可以感受到真正的大自然</p>
-<h2>翠岗</h2>
-<p>位于新林区的北部，总面积159 599公顷，总人口7890人。<br />
-翠岗镇的镇名源自1958年开始筹建的翠岗林场的名称，</p>
-<h2>干河</h2>
-<p>“瓦拉干”系鄂伦春语，为“向阳坡多”之意，因该河河道北侧山坡较多而得此名。瓦拉干河系呼玛河左侧较大支流之一，发源于西罗奇山岭南坡，全长约78公里，流经瓦拉干和塔河两个镇境，后汇入呼玛河。</p>
-<h2>图片</h2>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0785.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1066 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0785-1024x683.jpg" alt="IMG_0785" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1066" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0785-1024x683.jpg" alt="IMG_0785" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0971.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1075 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0971-1024x683.jpg" alt="IMG_0971" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1075" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0971-1024x683.jpg" alt="IMG_0971" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0913.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1071 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0913-1024x683.jpg" alt="IMG_0913" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1071" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0913-1024x683.jpg" alt="IMG_0913" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0811.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1069 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0811-1024x683.jpg" alt="IMG_0811" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1069" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0811-1024x683.jpg" alt="IMG_0811" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0935.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1073 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0935-1024x683.jpg" alt="IMG_0935" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1073" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0935-1024x683.jpg" alt="IMG_0935" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0947.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1074 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0947-1024x683.jpg" alt="IMG_0947" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1074" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0947-1024x683.jpg" alt="IMG_0947" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0839.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1068 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0839-1024x683.jpg" alt="IMG_0839" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1068" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0839-1024x683.jpg" alt="IMG_0839" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0833.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1067 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0833-1024x683.jpg" alt="IMG_0833" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1067" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0833-1024x683.jpg" alt="IMG_0833" width="1024" height="683" /></noscript></a></p>
-                
-                <div class="meta-footer">
-                	<ul>
-                        <li><a href="/post/1076/">Read More</a></li>
-                        <li><a href="/post/1076/#comment">没有评论</a></li>
+                        <li><a href="/post/941/">Read More</a></li>
+                        <li><a href="/post/941/#comment">没有评论</a></li>
                                             </ul>
                  <div class="clear-left"></div>   
 				</div>
         
         	</div>
                 			<div class="pagination">
-                <div class="prev-page"><a href="/page/2/" >Older Entries</a></div>
-                <div class="next-page"></div>
+                <div class="prev-page"><a href="/post/author/admin/page/19/" >Older Entries</a></div>
+                <div class="next-page"><a href="/post/author/admin/page/17/" >Newer Entries</a></div>
             </div>
         </div>
+
 <!--#content:end-->
 		<div id="sidebar">
 
@@ -316,7 +347,7 @@ $(window).resize(fix_images_height);
 
 </body>
 </html>
-<!-- page 0.280 seconds. -->
+<!-- page 0.050 seconds. -->
 <!-- time 2015-11-23 20:38:13 -->
 
 <!-- super cache -->

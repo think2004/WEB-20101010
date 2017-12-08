@@ -93,62 +93,52 @@ jQuery(document).ready(function($) {
         </div>
 <!--#header:end--><!--#content:start-->
     	<div id="content">
-                <div class="entry" id="post-2031">
+                <div class="entry" id="post-821">
         
 		
-            	<h2><a href="/post/2031/" rel="bookmark" title="Permanent Link to 时间就是这样">时间就是这样</a></h2>
-                <p class="meta-header">Posted on the 十一月 21st, 2015 under <a href="/topics/fluxay/" rel="category tag">流光</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
+            	<h2><a href="/post/821/" rel="bookmark" title="Permanent Link to linux自动备份+自动删除+自动发送的脚本">linux自动备份+自动删除+自动发送的脚本</a></h2>
+                <p class="meta-header">Posted on the 十一月 6th, 2014 under <a href="/topics/uncategorized/" rel="category tag">默认</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
                 
-                <p>不要浪费任何时间<br />
-不要做无意义的事情</p>
-<p>充分享受生命的每一秒<br />
-世界上很多地方都需要去</p>
-<p>为了十年后的今天不会对自己失望<br />
-必须努力，必须努力，必须努力，必须努力，</p>
+                <p>如果天天手工备份真是太麻烦了，<br />
+我的理念是机器能完成的事情就一定让机器去干，人的时间是最宝贵的。<br />
+Linux是公认的运行稳定、安全性较高的操作系统，但是服务器硬件故障和各种意外因素都会导致Linux服务器硬盘上数据丢失。特别对于运用在商业领域中的Linux服务器，数据的安全性、完整性和灾难后的数据恢复能力是每一个Linux系统管理员最为关心的问题。Linux作为新一代网络操作系统，在服务器方面的应用越来越广泛。作为专门的网络服务器，一个重要功能就是对服务器数据进行备份，以确保数据的安全。</p>
+<h2>前期准备</h2>
+<p>通过crontab每天执行这个备份脚本<br />
+或者根据你的要求来执行这个备份脚本<br />
+1.crontab安装 使用 用法等等 可以参考这篇文章</p>
+<pre>/post/803/</pre>
+<p>2.创建一个backup的目录<br />
+进入home目录创建backup文件夹</p>
+<pre>cd /home
+mkdir backup</pre>
+<p>3.安装lftp<br />
+脚本中用了lftp把备份文件传输到其他FTP服务器,如果你不需要做远程异地备份 可以不安装</p>
+<pre>yum install lftp</pre>
+<p>4.FTP服务器<br />
+如果你不需要做远程异地备份 只靠本机备份就能安心的话就不用弄了</p>
+<h2>效果截图</h2>
+<p>本地服务器备份文件<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141106165914.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-823 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141106165914.jpg" alt="20141106165914" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-823" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141106165914.jpg" alt="20141106165914" width="675" height="424" /></noscript></a><br />
+远程服务器备份文件<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141106170114.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-full wp-image-824 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141106170114.jpg" alt="20141106170114" width="675" height="424" /><noscript><img class="aligncenter size-full wp-image-824" src="https://think2004.github.io/WEB-20101040/uploads/2014/11/20141106170114.jpg" alt="20141106170114" width="675" height="424" /></noscript></a></p>
+<h2>脚本代码</h2>
+<p>脚本目前是每天备份一次 本机备份保留3天 然后每天的备份发送到远程的FTP服务器上<br />
+将以下代码复制 保存为 backup.sh<br />
+或者直接下载我服务器上的<br />
+https://think2004.github.io/WEB-20101040/files/sh/backup.sh</p>
                 
                 <div class="meta-footer">
                 	<ul>
-                        <li><a href="/post/2031/">Read More</a></li>
-                        <li><a href="/post/2031/#comment">没有评论</a></li>
-                                            </ul>
-                 <div class="clear-left"></div>   
-				</div>
-        
-        	</div>
-                <div class="entry" id="post-1076">
-        
-		
-            	<h2><a href="/post/1076/" rel="bookmark" title="Permanent Link to 翠岗小镇">翠岗小镇</a></h2>
-                <p class="meta-header">Posted on the 一月 28th, 2015 under <a href="/topics/dansnow/" rel="category tag">溯雪</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
-                
-                <p>大兴安岭 翠岗镇 一年四季 无论什么时间 都可以感受到真正的大自然</p>
-<h2>翠岗</h2>
-<p>位于新林区的北部，总面积159 599公顷，总人口7890人。<br />
-翠岗镇的镇名源自1958年开始筹建的翠岗林场的名称，</p>
-<h2>干河</h2>
-<p>“瓦拉干”系鄂伦春语，为“向阳坡多”之意，因该河河道北侧山坡较多而得此名。瓦拉干河系呼玛河左侧较大支流之一，发源于西罗奇山岭南坡，全长约78公里，流经瓦拉干和塔河两个镇境，后汇入呼玛河。</p>
-<h2>图片</h2>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0785.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1066 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0785-1024x683.jpg" alt="IMG_0785" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1066" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0785-1024x683.jpg" alt="IMG_0785" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0971.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1075 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0971-1024x683.jpg" alt="IMG_0971" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1075" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0971-1024x683.jpg" alt="IMG_0971" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0913.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1071 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0913-1024x683.jpg" alt="IMG_0913" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1071" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0913-1024x683.jpg" alt="IMG_0913" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0811.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1069 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0811-1024x683.jpg" alt="IMG_0811" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1069" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0811-1024x683.jpg" alt="IMG_0811" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0935.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1073 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0935-1024x683.jpg" alt="IMG_0935" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1073" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0935-1024x683.jpg" alt="IMG_0935" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0947.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1074 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0947-1024x683.jpg" alt="IMG_0947" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1074" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0947-1024x683.jpg" alt="IMG_0947" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0839.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1068 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0839-1024x683.jpg" alt="IMG_0839" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1068" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0839-1024x683.jpg" alt="IMG_0839" width="1024" height="683" /></noscript></a></p>
-<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0833.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1067 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0833-1024x683.jpg" alt="IMG_0833" width="1024" height="683" /><noscript><img class="aligncenter size-large wp-image-1067" src="https://think2004.github.io/WEB-20101040/uploads/2015/01/IMG_0833-1024x683.jpg" alt="IMG_0833" width="1024" height="683" /></noscript></a></p>
-                
-                <div class="meta-footer">
-                	<ul>
-                        <li><a href="/post/1076/">Read More</a></li>
-                        <li><a href="/post/1076/#comment">没有评论</a></li>
+                        <li><a href="/post/821/">Read More</a></li>
+                        <li><a href="/post/821/#comment">没有评论</a></li>
                                             </ul>
                  <div class="clear-left"></div>   
 				</div>
         
         	</div>
                 			<div class="pagination">
-                <div class="prev-page"><a href="/page/2/" >Older Entries</a></div>
-                <div class="next-page"></div>
+                <div class="prev-page"><a href="/page/20/" >Older Entries</a></div>
+                <div class="next-page"><a href="/page/18/" >Newer Entries</a></div>
             </div>
         </div>
 <!--#content:end-->
@@ -316,7 +306,7 @@ $(window).resize(fix_images_height);
 
 </body>
 </html>
-<!-- page 0.280 seconds. -->
+<!-- page 0.049 seconds. -->
 <!-- time 2015-11-23 20:38:13 -->
 
 <!-- super cache -->

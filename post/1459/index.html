@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>windows2003安装mysql详细过程 &#8211;  Think Blog</title>
+
+    <link rel="Shortcut Icon" href="https://think2004.github.io/WEB-20101030/favicon.ico" />
+    
+    
+    <link rel="stylesheet" href="https://think2004.github.io/WEB-20101030/statics/css/style2011.css" type="text/css" media="screen"/>
+    
+	    		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),c.toDataURL().length>3e3):("simple"===a?d.fillText(String.fromCharCode(55357,56835),0,0):d.fillText(String.fromCharCode(55356,57135),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<script type='text/javascript' src='https://think2004.github.io/WEB-20101030/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='https://think2004.github.io/WEB-20101030/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel='https://api.w.org/' href='/wp-json/' />
+
+ 
+
+<link rel='next' title='windows2003安装kangle第一篇(使用API方式跑全能空间)' href='/post/1441/' />
+
+<link rel="canonical" href="/post/1459/" />
+<link rel='shortlink' href='/?p=1459' />
+
+<link rel="stylesheet" href="https://think2004.github.io/WEB-20101030/wp-content/plugins/auto-highslide/highslide/highslide.css" type="text/css" />
+<script type="text/javascript" src="https://think2004.github.io/WEB-20101030/wp-content/plugins/auto-highslide/highslide/highslide-with-html.packed.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    hs.graphicsDir = "https://think2004.github.io/WEB-20101030/wp-content/plugins/auto-highslide/highslide/graphics/";
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.addSlideshow({
+        interval: 5000,
+        repeat: true,
+        useControls: true,
+        fixedControls: "fit",
+        overlayOptions: {
+            opacity: 0.75,
+            position: "bottom center",
+            hideOnMouseOut: true
+
+        }
+
+    });
+});
+</script>
+	</head>
+<body>
+
+<!--#wrapper:start-->
+	<div id="wrapper">
+    
+<!--#header:start-->
+    	<div id="header">
+        	<h1><a href="/">Think Blog</a></h1>
+
+<!--#navigation:start-->
+            <div id="navigation">
+            	<ul>
+                	<li><a href="/" class="">Home</a></li>
+                    <li class="page_item page-item-7"><a href="/about/">About</a></li>
+                </ul>
+            </div>
+<!--#navigation:end-->
+<!--#search:start-->
+            <div id="search">
+				<form method="get" id="searchform" action="/">
+                <input type="text" value="" name="s" id="s" />
+                <input type="submit" id="searchsubmit" value="search" />
+
+                </form>
+            </div>
+<!--#search:end-->
+        </div>
+<!--#header:end--><!--#content:start-->
+    	<div id="content">
+                        	<div class="entry" id="post-1459">
+                        	<h2><a href="/post/1459/" rel="bookmark" title="Permanent Link to windows2003安装mysql详细过程">windows2003安装mysql详细过程</a></h2>
+                <p class="meta-header">Posted on the 八月 13th, 2015 under <a href="/topics/uncategorized/" rel="category tag">默认</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
+                <h2>测试环境</h2>
+<p>VMware Workstation 版本 9.0<br />
+server2003_r2_enterprise_sp2_x86</p>
+<h2>所需软件</h2>
+<p>我提供的下载地址为当前教程中我使用的版本<br />
+建议去官方下载这些文件的最新版本<br />
+https://think2004.github.io/WEB-20101040/files/mysql/mysql-5.5.27-win32.msi</p>
+<h2>安装过程</h2>
+<p><a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164150.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164150-1024x794.jpg" alt="20150813164150" width="1024" height="794" class="aligncenter size-large wp-image-1478 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164150-1024x794.jpg" alt="20150813164150" width="1024" height="794" class="aligncenter size-large wp-image-1478" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164216.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164216-1024x794.jpg" alt="20150813164216" width="1024" height="794" class="aligncenter size-large wp-image-1479 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164216-1024x794.jpg" alt="20150813164216" width="1024" height="794" class="aligncenter size-large wp-image-1479" /></noscript></a><br />
+选择第二个<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164250.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164250-1024x794.jpg" alt="20150813164250" width="1024" height="794" class="aligncenter size-large wp-image-1480 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164250-1024x794.jpg" alt="20150813164250" width="1024" height="794" class="aligncenter size-large wp-image-1480" /></noscript></a><br />
+选择安装目录<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164330.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164330-1024x794.jpg" alt="20150813164330" width="1024" height="794" class="aligncenter size-large wp-image-1481 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164330-1024x794.jpg" alt="20150813164330" width="1024" height="794" class="aligncenter size-large wp-image-1481" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164400.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164400-1024x794.jpg" alt="20150813164400" width="1024" height="794" class="aligncenter size-large wp-image-1482 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164400-1024x794.jpg" alt="20150813164400" width="1024" height="794" class="aligncenter size-large wp-image-1482" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164428.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164428-1024x794.jpg" alt="20150813164428" width="1024" height="794" class="aligncenter size-large wp-image-1483 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164428-1024x794.jpg" alt="20150813164428" width="1024" height="794" class="aligncenter size-large wp-image-1483" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164455.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164455-1024x794.jpg" alt="20150813164455" width="1024" height="794" class="aligncenter size-large wp-image-1484 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164455-1024x794.jpg" alt="20150813164455" width="1024" height="794" class="aligncenter size-large wp-image-1484" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164516.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164516-1024x794.jpg" alt="20150813164516" width="1024" height="794" class="aligncenter size-large wp-image-1485 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164516-1024x794.jpg" alt="20150813164516" width="1024" height="794" class="aligncenter size-large wp-image-1485" /></noscript></a><br />
+选择第一个<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164537.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164537-1024x794.jpg" alt="20150813164537" width="1024" height="794" class="aligncenter size-large wp-image-1486 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164537-1024x794.jpg" alt="20150813164537" width="1024" height="794" class="aligncenter size-large wp-image-1486" /></noscript></a><br />
+选择第二个<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164618.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164618-1024x794.jpg" alt="20150813164618" width="1024" height="794" class="aligncenter size-large wp-image-1487 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164618-1024x794.jpg" alt="20150813164618" width="1024" height="794" class="aligncenter size-large wp-image-1487" /></noscript></a><br />
+选择第一个<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164642.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164642-1024x794.jpg" alt="20150813164642" width="1024" height="794" class="aligncenter size-large wp-image-1488 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164642-1024x794.jpg" alt="20150813164642" width="1024" height="794" class="aligncenter size-large wp-image-1488" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164716.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164716-1024x794.jpg" alt="20150813164716" width="1024" height="794" class="aligncenter size-large wp-image-1489 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164716-1024x794.jpg" alt="20150813164716" width="1024" height="794" class="aligncenter size-large wp-image-1489" /></noscript></a><br />
+选择第三个 输入1000<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164750.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164750-1024x794.jpg" alt="20150813164750" width="1024" height="794" class="aligncenter size-large wp-image-1490 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164750-1024x794.jpg" alt="20150813164750" width="1024" height="794" class="aligncenter size-large wp-image-1490" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164835.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164835-1024x794.jpg" alt="20150813164835" width="1024" height="794" class="aligncenter size-large wp-image-1491 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164835-1024x794.jpg" alt="20150813164835" width="1024" height="794" class="aligncenter size-large wp-image-1491" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164853.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164853-1024x794.jpg" alt="20150813164853" width="1024" height="794" class="aligncenter size-large wp-image-1492 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164853-1024x794.jpg" alt="20150813164853" width="1024" height="794" class="aligncenter size-large wp-image-1492" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164910.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164910-1024x794.jpg" alt="20150813164910" width="1024" height="794" class="aligncenter size-large wp-image-1493 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164910-1024x794.jpg" alt="20150813164910" width="1024" height="794" class="aligncenter size-large wp-image-1493" /></noscript></a><br />
+这里设置root用户的密码<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164955.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164955-1024x794.jpg" alt="20150813164955" width="1024" height="794" class="aligncenter size-large wp-image-1494 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813164955-1024x794.jpg" alt="20150813164955" width="1024" height="794" class="aligncenter size-large wp-image-1494" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813165029.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813165029-1024x794.jpg" alt="20150813165029" width="1024" height="794" class="aligncenter size-large wp-image-1495 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813165029-1024x794.jpg" alt="20150813165029" width="1024" height="794" class="aligncenter size-large wp-image-1495" /></noscript></a><br />
+安装完成<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813165111.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813165111-1024x794.jpg" alt="20150813165111" width="1024" height="794" class="aligncenter size-large wp-image-1496 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150813165111-1024x794.jpg" alt="20150813165111" width="1024" height="794" class="aligncenter size-large wp-image-1496" /></noscript></a></p>
+                <div class="meta-footer">
+                	<ul>
+                                            </ul>
+                    <div class="clear-left"></div>
+				</div>
+			                
+            </div>
+        
+<!-- You can start editing here. -->
+
+<div id="comments">
+
+
+			<!-- If comments are closed. -->
+		<p class="nocomments">Comments are closed.</p>
+		</div>
+	
+
+                        	
+        </div>
+<!--#content:end-->
+		<div id="sidebar">
+
+        	<div class="about box">
+                    	            	<h3>About</h3>
+            	<p> 不要把光阴遗忘 乘着风追 落到有永恒的地方</p>
+                <div class="clear"></div>
+            
+                        </div>
+            <div class="feeds">You can get update via <a href="/feed/">feed</a>.</div>
+            
+			<div class="col">
+            <div class="box"><h3>分类目录</h3>		<ul>
+	<li class="cat-item cat-item-3"><a href="/topics/fluxay/" >流光</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="/topics/dansnow/" >溯雪</a>
+</li>
+	<li class="cat-item cat-item-69"><a href="/topics/internet/" >网络</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/topics/uncategorized/" >默认</a>
+</li>
+		</ul>
+</div>            </div>
+            <div class="col2">
+            <div class="box"><h3>文章归档</h3>		<ul>
+			<li><a href='/post/date/2015/11/'>2015年十一月</a></li>
+	<li><a href='/post/date/2015/10/'>2015年十月</a></li>
+	<li><a href='/post/date/2015/08/'>2015年八月</a></li>
+	<li><a href='/post/date/2015/05/'>2015年五月</a></li>
+	<li><a href='/post/date/2015/01/'>2015年一月</a></li>
+	<li><a href='/post/date/2014/11/'>2014年十一月</a></li>
+	<li><a href='/post/date/2014/10/'>2014年十月</a></li>
+	<li><a href='/post/date/2014/08/'>2014年八月</a></li>
+	<li><a href='/post/date/2014/07/'>2014年七月</a></li>
+	<li><a href='/post/date/2014/05/'>2014年五月</a></li>
+	<li><a href='/post/date/2014/04/'>2014年四月</a></li>
+	<li><a href='/post/date/2013/12/'>2013年十二月</a></li>
+	<li><a href='/post/date/2012/08/'>2012年八月</a></li>
+	<li><a href='/post/date/2012/03/'>2012年三月</a></li>
+	<li><a href='/post/date/2011/09/'>2011年九月</a></li>
+	<li><a href='/post/date/2011/05/'>2011年五月</a></li>
+	<li><a href='/post/date/2010/12/'>2010年十二月</a></li>
+		</ul>
+		</div>			</div>
+        </div>    </div>
+	<div id="wrapper">
+    	<div id="footer">
+        	<p>
+				&nbsp;&nbsp;&copy; 2010 <a href="">Think Blog</a>.             	
+            </p>
+			
+<!-- Simple Lazyload 2.7 - css and js -->
+<style type="text/css">
+.sl_lazyimg{
+opacity:0.1;filter:alpha(opacity=10);
+background:url(https://think2004.github.io/WEB-20101030/statics/images/loading2.gif) no-repeat center center;
+}
+</style>
+
+<noscript>
+<style type="text/css">
+.sl_lazyimg{display:none;}
+</style>
+</noscript>
+
+<script type="text/javascript">
+Array.prototype.S = String.fromCharCode(2);
+Array.prototype.in_array = function(e) {
+	var r = new RegExp(this.S+e+this.S);
+	return (r.test(this.S+this.join(this.S)+this.S));
+};
+
+Array.prototype.pull=function(content){
+	for(var i=0,n=0;i<this.length;i++){
+		if(this[i]!=content){
+			this[n++]=this[i];
+		}
+	}
+	this.length-=1;
+};
+
+jQuery(document).ready(function($) {
+window._lazyimgs = $("img.sl_lazyimg");
+if (_lazyimgs.length == 0) {
+	return;
+}
+var toload_inds = [];
+var loaded_inds = [];
+var failed_inds = [];
+var failed_count = {};
+var lazyload = function() {
+	if (loaded_inds.length==_lazyimgs.length) {
+		return;
+	}
+	var threshold = 200;
+	_lazyimgs.each(function(i){
+		_self = $(this);
+		if ( _self.attr("lazyloadpass")===undefined && _self.attr("file")
+			&& ( !_self.attr("src") || (_self.attr("src") && _self.attr("file")!=_self.attr("src")) )
+			) {
+			if( (_self.offset().top) < ($(window).height()+$(document).scrollTop()+threshold)
+				&& (_self.offset().left) < ($(window).width()+$(document).scrollLeft()+threshold)
+				&& (_self.offset().top) > ($(document).scrollTop()-threshold)
+				&& (_self.offset().left) > ($(document).scrollLeft()-threshold)
+				) {
+				if (toload_inds.in_array(i)) {
+					return;
+				}
+				toload_inds.push(i);
+				if (failed_count["count"+i] === undefined) {
+					failed_count["count"+i] = 0;
+				}
+				_self.css("opacity",1);
+				$("<img ind=\""+i+"\"/>").bind("load", function(){
+					var ind = $(this).attr("ind");
+					if (loaded_inds.in_array(ind)) {
+						return;
+					}
+					loaded_inds.push(ind);
+					var _img = _lazyimgs.eq(ind);
+					_img.attr("src",_img.attr("file")).css("background-image","none").attr("lazyloadpass","1");
+				}).bind("error", function(){
+					var ind = $(this).attr("ind");
+					if (!failed_inds.in_array(ind)) {
+						failed_inds.push(ind);
+					}
+					failed_count["count"+ind]++;
+					if (failed_count["count"+ind] < 2) {
+						toload_inds.pull(ind);
+					}
+				}).attr("src", _self.attr("file"));
+			}
+		}
+	});
+}
+lazyload();
+var ins;
+$(window).scroll(function(){clearTimeout(ins);ins=setTimeout(lazyload,100);});
+$(window).resize(function(){clearTimeout(ins);ins=setTimeout(lazyload,100);});
+});
+
+jQuery(function($) {
+var calc_image_height = function(_img) {
+	var width = _img.attr("width");
+	var height = _img.attr("height");
+	if ( !(width && height && width>=300) ) return;
+	var now_width = _img.width();
+	var now_height = parseInt(height * (now_width/width));
+	_img.css("height", now_height);
+}
+var fix_images_height = function() {
+	_lazyimgs.each(function() {
+		calc_image_height($(this));
+	});
+}
+fix_images_height();
+$(window).resize(fix_images_height);
+});
+</script>
+<!-- Minify css and js END -->
+<script type='text/javascript' src='https://think2004.github.io/WEB-20101030/wp-includes/js/comment-reply.min.js?ver=4.4'></script>
+        </div>
+    </div>
+
+</body>
+</html>
+<!-- page 0.052 seconds. -->
+<!-- time 2015-11-23 20:38:13 -->
+
+<!-- super cache -->

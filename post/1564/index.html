@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>windows上的mysql安全设置 &#8211;  Think Blog</title>
+
+    <link rel="Shortcut Icon" href="https://think2004.github.io/WEB-20101030/favicon.ico" />
+    
+    
+    <link rel="stylesheet" href="https://think2004.github.io/WEB-20101030/statics/css/style2011.css" type="text/css" media="screen"/>
+    
+	    		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),c.toDataURL().length>3e3):("simple"===a?d.fillText(String.fromCharCode(55357,56835),0,0):d.fillText(String.fromCharCode(55356,57135),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<script type='text/javascript' src='https://think2004.github.io/WEB-20101030/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='https://think2004.github.io/WEB-20101030/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel='https://api.w.org/' href='/wp-json/' />
+
+ 
+
+<link rel='next' title='腾讯云win服务器cpu跑分测试' href='/post/1601/' />
+
+<link rel="canonical" href="/post/1564/" />
+<link rel='shortlink' href='/?p=1564' />
+
+<link rel="stylesheet" href="https://think2004.github.io/WEB-20101030/wp-content/plugins/auto-highslide/highslide/highslide.css" type="text/css" />
+<script type="text/javascript" src="https://think2004.github.io/WEB-20101030/wp-content/plugins/auto-highslide/highslide/highslide-with-html.packed.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    hs.graphicsDir = "https://think2004.github.io/WEB-20101030/wp-content/plugins/auto-highslide/highslide/graphics/";
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.addSlideshow({
+        interval: 5000,
+        repeat: true,
+        useControls: true,
+        fixedControls: "fit",
+        overlayOptions: {
+            opacity: 0.75,
+            position: "bottom center",
+            hideOnMouseOut: true
+
+        }
+
+    });
+});
+</script>
+	</head>
+<body>
+
+<!--#wrapper:start-->
+	<div id="wrapper">
+    
+<!--#header:start-->
+    	<div id="header">
+        	<h1><a href="/">Think Blog</a></h1>
+
+<!--#navigation:start-->
+            <div id="navigation">
+            	<ul>
+                	<li><a href="/" class="">Home</a></li>
+                    <li class="page_item page-item-7"><a href="/about/">About</a></li>
+                </ul>
+            </div>
+<!--#navigation:end-->
+<!--#search:start-->
+            <div id="search">
+				<form method="get" id="searchform" action="/">
+                <input type="text" value="" name="s" id="s" />
+                <input type="submit" id="searchsubmit" value="search" />
+
+                </form>
+            </div>
+<!--#search:end-->
+        </div>
+<!--#header:end--><!--#content:start-->
+    	<div id="content">
+                        	<div class="entry" id="post-1564">
+                        	<h2><a href="/post/1564/" rel="bookmark" title="Permanent Link to windows上的mysql安全设置">windows上的mysql安全设置</a></h2>
+                <p class="meta-header">Posted on the 八月 14th, 2015 under <a href="/topics/uncategorized/" rel="category tag">默认</a> by <a href="/post/author/admin/" title="由admin发布" rel="author">admin</a> </p>
+                <h2>前言</h2>
+<p>本教程中的安全设置无法保证你百分百就不被黑。<br />
+经过本教程的设置 你的mysql安全会提高一个层次<br />
+尤其是在多用户的情况下 特别是对windows上面的虚拟主机管理系统很有效果<br />
+比如 华众 星外 kangle 慧琳</p>
+<h2>正题开始</h2>
+<p>在windows上面 mysql服务默认使用的是系统账号SYSTEM<br />
+所以我们先从这个入手 给mysql重新指定一个普通用户去登录<br />
+本文当中使用的环境是windows2003 高版本windows 比如2008什么的都同样适用</p>
+<h2>设置步骤</h2>
+<ol>
+<li>给系统添加一个普通用户</li>
+<li>mysql目录权限设置</li>
+<li>设置mysql使用这个普通用户登录</li>
+</ol>
+<h2>详细图文</h2>
+<p>首先我们看下面的图 可以看出当前mysql使用SYSTEM用户进行登录的<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814152505.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1566 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814152505-1024x794.jpg" alt="20150814152505" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1566" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814152505-1024x794.jpg" alt="20150814152505" width="1024" height="794" /></noscript></a><br />
+一旦你mysql的root密码被破解 黑客就可以轻松的使用SYSTEM用户权限<br />
+那么我们要做的就是 让mysql以普通用户去登录<br />
+就算你服务器其他地方的安全设置不合理 导致mysql的root密码被破解<br />
+就算黑客拿到这个密码 也不能进一步的对服务器造成威胁</p>
+<h3>给系统添加一个普通用户</h3>
+<p>这个超级简单，但还是要详细的截图出来 会了的可以略过<br />
+我的电脑-右键-管理<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814152913.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1567 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814152913-1024x794.jpg" alt="20150814152913" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1567" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814152913-1024x794.jpg" alt="20150814152913" width="1024" height="794" /></noscript></a><br />
+本地用户和组-用户-空白处右键-选择新用户<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153026.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1568 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153026-1024x794.jpg" alt="20150814153026" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1568" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153026-1024x794.jpg" alt="20150814153026" width="1024" height="794" /></noscript></a><br />
+在新用户窗口 填写这个新用户的用户名和密码<br />
+我这里要创建的用户名是mysqluser 这个根据你自己喜欢来创建就行了没要求<br />
+设置的密码记住 一会要用到 一定要选择密码永不过期 如下图 填好了点创建就行了<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153152.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1569 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153152-1024x794.jpg" alt="20150814153152" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1569" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153152-1024x794.jpg" alt="20150814153152" width="1024" height="794" /></noscript></a><br />
+现在我们查看下刚刚创建的用户<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153445.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1570 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153445-1024x794.jpg" alt="20150814153445" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1570" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153445-1024x794.jpg" alt="20150814153445" width="1024" height="794" /></noscript></a><br />
+然后选择这个用户-右键-属性<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153538.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1571 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153538-1024x794.jpg" alt="20150814153538" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1571" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153538-1024x794.jpg" alt="20150814153538" width="1024" height="794" /></noscript></a><br />
+找到 隶属于-Users-删除-应用<br />
+意思就是 让我们新建的这个用户不属于任何组 如下图<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153732.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1572 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153732-1024x794.jpg" alt="20150814153732" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1572" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814153732-1024x794.jpg" alt="20150814153732" width="1024" height="794" /></noscript></a></p>
+<h3>mysql目录权限设置</h3>
+<p>首先设置mysql主程序目录权限 也就是程序安装目录<br />
+比如我的安装目录是 D:\Program Files\MySQL\MySQL Server 5.5<br />
+那么就设置这个目录的权限 仅保留administrator 和SYSTEM 剩下的全部删除<br />
+然后添加刚刚添加好的独立用户给予 读取和运行权限 列出文件夹目录 读取 这三个权限 如下图<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814154828.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1573 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814154828-1024x794.jpg" alt="20150814154828" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1573" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814154828-1024x794.jpg" alt="20150814154828" width="1024" height="794" /></noscript></a><br />
+现在开始设置mysql数据库文件目录 就是你的数据库存储的目录<br />
+可以通过查看my.ini查询到<br />
+my.ini 在mysql的安装目录可以找到<br />
+打开my.ini 搜索datadir= 可以可以找到你的数据库文件存放目录了<br />
+如下图<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814155617.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter size-large wp-image-1574 sl_lazyimg" src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814155617-1024x794.jpg" alt="20150814155617" width="1024" height="794" /><noscript><img class="aligncenter size-large wp-image-1574" src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814155617-1024x794.jpg" alt="20150814155617" width="1024" height="794" /></noscript></a><br />
+现在我们找到了 数据库存放目录是</p>
+<pre>C:/Documents and Settings/All Users/Application Data/MySQL/MySQL Server 5.5/Data/</pre>
+<p>但为了以后的服务器目录安全设置 我们需要把这个目录转移走<br />
+比如E盘 D盘 随你个人喜好来做<br />
+我这里就根据个人喜好 把数据库存放目录修改为E:/MySQL Datafiles<br />
+如果你也想要修改 那么还需要把 </p>
+<pre>C:/Documents and Settings/All Users/Application Data/MySQL/MySQL Server 5.5/Data/这里面所有的文件拷贝到新目录，比如E:/MySQL Datafiles/</pre>
+<p>如下图<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160254.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160254-1024x794.jpg" alt="20150814160254" width="1024" height="794" class="aligncenter size-large wp-image-1575 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160254-1024x794.jpg" alt="20150814160254" width="1024" height="794" class="aligncenter size-large wp-image-1575" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160342.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160342-1024x794.jpg" alt="20150814160342" width="1024" height="794" class="aligncenter size-large wp-image-1576 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160342-1024x794.jpg" alt="20150814160342" width="1024" height="794" class="aligncenter size-large wp-image-1576" /></noscript></a><br />
+辅助数据库文件后 可以修改my.ini的路径了<br />
+我们改为<br />
+datadir=&#8221;E:/MySQL Datafiles/&#8221;<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160450.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160450-1024x794.jpg" alt="20150814160450" width="1024" height="794" class="aligncenter size-large wp-image-1577 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160450-1024x794.jpg" alt="20150814160450" width="1024" height="794" class="aligncenter size-large wp-image-1577" /></noscript></a><br />
+保存好my.ini后 可以去设置mysql数据库文件存放目录的权限了<br />
+保留administrator 和SYSTEM的权限 剩下的全删除 然后给mysqluser 完全控制的权限 如下图<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160755.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160755-1024x794.jpg" alt="20150814160755" width="1024" height="794" class="aligncenter size-large wp-image-1578 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814160755-1024x794.jpg" alt="20150814160755" width="1024" height="794" class="aligncenter size-large wp-image-1578" /></noscript></a></p>
+<h3>设置mysql使用这个普通用户登录</h3>
+<p>开始-管理工具-服务<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161016.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161016-1024x794.jpg" alt="20150814161016" width="1024" height="794" class="aligncenter size-large wp-image-1579 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161016-1024x794.jpg" alt="20150814161016" width="1024" height="794" class="aligncenter size-large wp-image-1579" /></noscript></a><br />
+找到mysql-右键属性<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161127.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161127-1024x794.jpg" alt="20150814161127" width="1024" height="794" class="aligncenter size-large wp-image-1580 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161127-1024x794.jpg" alt="20150814161127" width="1024" height="794" class="aligncenter size-large wp-image-1580" /></noscript></a><br />
+选择登录-此账户-输入刚刚创建的账号和密码，比如我创建的是mysqluser 然后点应用<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161347.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161347-1024x794.jpg" alt="20150814161347" width="1024" height="794" class="aligncenter size-large wp-image-1581 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161347-1024x794.jpg" alt="20150814161347" width="1024" height="794" class="aligncenter size-large wp-image-1581" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161425.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161425-1024x794.jpg" alt="20150814161425" width="1024" height="794" class="aligncenter size-large wp-image-1582 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161425-1024x794.jpg" alt="20150814161425" width="1024" height="794" class="aligncenter size-large wp-image-1582" /></noscript></a><br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161444.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161444-1024x794.jpg" alt="20150814161444" width="1024" height="794" class="aligncenter size-large wp-image-1583 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161444-1024x794.jpg" alt="20150814161444" width="1024" height="794" class="aligncenter size-large wp-image-1583" /></noscript></a><br />
+最后一步 服务-mysql-重启动<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161543.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161543-1024x794.jpg" alt="20150814161543" width="1024" height="794" class="aligncenter size-large wp-image-1584 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161543-1024x794.jpg" alt="20150814161543" width="1024" height="794" class="aligncenter size-large wp-image-1584" /></noscript></a><br />
+至此mysql已普通用户登录的设置就完成了<br />
+任务管理器查看这个进程 可以看到已经在使用普通用户在登录了<br />
+<a href="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161720.jpg" class="highslide-image" onclick="return hs.expand(this);"><img src="https://think2004.github.io/WEB-20101030/statics/images/blank_1x1.gif" file="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161720-1024x794.jpg" alt="20150814161720" width="1024" height="794" class="aligncenter size-large wp-image-1585 sl_lazyimg" /><noscript><img src="https://think2004.github.io/WEB-20101040/uploads/2015/08/20150814161720-1024x794.jpg" alt="20150814161720" width="1024" height="794" class="aligncenter size-large wp-image-1585" /></noscript></a></p>
+                <div class="meta-footer">
+                	<ul>
+                                            </ul>
+                    <div class="clear-left"></div>
+				</div>
+			                
+            </div>
+        
+<!-- You can start editing here. -->
+
+<div id="comments">
+
+
+			<!-- If comments are closed. -->
+		<p class="nocomments">Comments are closed.</p>
+		</div>
+	
+
+                        	
+        </div>
+<!--#content:end-->
+		<div id="sidebar">
+
+        	<div class="about box">
+                    	            	<h3>About</h3>
+            	<p> 不要把光阴遗忘 乘着风追 落到有永恒的地方</p>
+                <div class="clear"></div>
+            
+                        </div>
+            <div class="feeds">You can get update via <a href="/feed/">feed</a>.</div>
+            
+			<div class="col">
+            <div class="box"><h3>分类目录</h3>		<ul>
+	<li class="cat-item cat-item-3"><a href="/topics/fluxay/" >流光</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="/topics/dansnow/" >溯雪</a>
+</li>
+	<li class="cat-item cat-item-69"><a href="/topics/internet/" >网络</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/topics/uncategorized/" >默认</a>
+</li>
+		</ul>
+</div>            </div>
+            <div class="col2">
+            <div class="box"><h3>文章归档</h3>		<ul>
+			<li><a href='/post/date/2015/11/'>2015年十一月</a></li>
+	<li><a href='/post/date/2015/10/'>2015年十月</a></li>
+	<li><a href='/post/date/2015/08/'>2015年八月</a></li>
+	<li><a href='/post/date/2015/05/'>2015年五月</a></li>
+	<li><a href='/post/date/2015/01/'>2015年一月</a></li>
+	<li><a href='/post/date/2014/11/'>2014年十一月</a></li>
+	<li><a href='/post/date/2014/10/'>2014年十月</a></li>
+	<li><a href='/post/date/2014/08/'>2014年八月</a></li>
+	<li><a href='/post/date/2014/07/'>2014年七月</a></li>
+	<li><a href='/post/date/2014/05/'>2014年五月</a></li>
+	<li><a href='/post/date/2014/04/'>2014年四月</a></li>
+	<li><a href='/post/date/2013/12/'>2013年十二月</a></li>
+	<li><a href='/post/date/2012/08/'>2012年八月</a></li>
+	<li><a href='/post/date/2012/03/'>2012年三月</a></li>
+	<li><a href='/post/date/2011/09/'>2011年九月</a></li>
+	<li><a href='/post/date/2011/05/'>2011年五月</a></li>
+	<li><a href='/post/date/2010/12/'>2010年十二月</a></li>
+		</ul>
+		</div>			</div>
+        </div>    </div>
+	<div id="wrapper">
+    	<div id="footer">
+        	<p>
+				&nbsp;&nbsp;&copy; 2010 <a href="">Think Blog</a>.             	
+            </p>
+			
+<!-- Simple Lazyload 2.7 - css and js -->
+<style type="text/css">
+.sl_lazyimg{
+opacity:0.1;filter:alpha(opacity=10);
+background:url(https://think2004.github.io/WEB-20101030/statics/images/loading2.gif) no-repeat center center;
+}
+</style>
+
+<noscript>
+<style type="text/css">
+.sl_lazyimg{display:none;}
+</style>
+</noscript>
+
+<script type="text/javascript">
+Array.prototype.S = String.fromCharCode(2);
+Array.prototype.in_array = function(e) {
+	var r = new RegExp(this.S+e+this.S);
+	return (r.test(this.S+this.join(this.S)+this.S));
+};
+
+Array.prototype.pull=function(content){
+	for(var i=0,n=0;i<this.length;i++){
+		if(this[i]!=content){
+			this[n++]=this[i];
+		}
+	}
+	this.length-=1;
+};
+
+jQuery(document).ready(function($) {
+window._lazyimgs = $("img.sl_lazyimg");
+if (_lazyimgs.length == 0) {
+	return;
+}
+var toload_inds = [];
+var loaded_inds = [];
+var failed_inds = [];
+var failed_count = {};
+var lazyload = function() {
+	if (loaded_inds.length==_lazyimgs.length) {
+		return;
+	}
+	var threshold = 200;
+	_lazyimgs.each(function(i){
+		_self = $(this);
+		if ( _self.attr("lazyloadpass")===undefined && _self.attr("file")
+			&& ( !_self.attr("src") || (_self.attr("src") && _self.attr("file")!=_self.attr("src")) )
+			) {
+			if( (_self.offset().top) < ($(window).height()+$(document).scrollTop()+threshold)
+				&& (_self.offset().left) < ($(window).width()+$(document).scrollLeft()+threshold)
+				&& (_self.offset().top) > ($(document).scrollTop()-threshold)
+				&& (_self.offset().left) > ($(document).scrollLeft()-threshold)
+				) {
+				if (toload_inds.in_array(i)) {
+					return;
+				}
+				toload_inds.push(i);
+				if (failed_count["count"+i] === undefined) {
+					failed_count["count"+i] = 0;
+				}
+				_self.css("opacity",1);
+				$("<img ind=\""+i+"\"/>").bind("load", function(){
+					var ind = $(this).attr("ind");
+					if (loaded_inds.in_array(ind)) {
+						return;
+					}
+					loaded_inds.push(ind);
+					var _img = _lazyimgs.eq(ind);
+					_img.attr("src",_img.attr("file")).css("background-image","none").attr("lazyloadpass","1");
+				}).bind("error", function(){
+					var ind = $(this).attr("ind");
+					if (!failed_inds.in_array(ind)) {
+						failed_inds.push(ind);
+					}
+					failed_count["count"+ind]++;
+					if (failed_count["count"+ind] < 2) {
+						toload_inds.pull(ind);
+					}
+				}).attr("src", _self.attr("file"));
+			}
+		}
+	});
+}
+lazyload();
+var ins;
+$(window).scroll(function(){clearTimeout(ins);ins=setTimeout(lazyload,100);});
+$(window).resize(function(){clearTimeout(ins);ins=setTimeout(lazyload,100);});
+});
+
+jQuery(function($) {
+var calc_image_height = function(_img) {
+	var width = _img.attr("width");
+	var height = _img.attr("height");
+	if ( !(width && height && width>=300) ) return;
+	var now_width = _img.width();
+	var now_height = parseInt(height * (now_width/width));
+	_img.css("height", now_height);
+}
+var fix_images_height = function() {
+	_lazyimgs.each(function() {
+		calc_image_height($(this));
+	});
+}
+fix_images_height();
+$(window).resize(fix_images_height);
+});
+</script>
+<!-- Minify css and js END -->
+<script type='text/javascript' src='https://think2004.github.io/WEB-20101030/wp-includes/js/comment-reply.min.js?ver=4.4'></script>
+        </div>
+    </div>
+
+</body>
+</html>
+<!-- page 0.056 seconds. -->
+<!-- time 2015-11-23 20:38:13 -->
+
+<!-- super cache -->
